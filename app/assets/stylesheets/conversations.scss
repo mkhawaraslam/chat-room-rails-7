@@ -1,0 +1,166 @@
+.chat-container {
+  border-radius: 0.25rem;
+  margin: 0 auto;
+  max-width: 600px;
+  position: relative;
+
+  .image-container {
+    img {
+      width: 100%;
+    }
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      height: 50px;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0), $black 70%);
+      width: 100%;
+    }
+  }
+  .conversation {
+    display: flex;
+    flex-direction: column;
+    &-title {
+      color: $orange;
+      font-size: 14px;
+    }
+    &-user-info {
+      color: $grey;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+    }
+    p {
+      border-radius: 1.15rem;
+      font-size: 17px;
+      line-height: 1.75;
+      max-width: 75%;
+      padding: 0.5rem .875rem;
+      position: relative;
+      word-wrap: break-word;
+        &:before, &:after {
+          bottom: -0.1rem;
+          content: "";
+          height: 1rem;
+          position: absolute;
+          background: $black;
+        }
+      &.from-me {
+        align-self: flex-end;
+        background-color: $grey-100;
+        color: $white;
+        &:before {
+          border-bottom-left-radius: 0.8rem 0.7rem;
+          border-right: 1rem solid $grey-100;
+          right: -0.35rem;
+          transform: translate(0, -0.1rem);
+        }
+        &:after {
+          border-bottom-left-radius: 0.5rem;
+          right: -40px;
+          transform:translate(-30px, -2px);
+          width: 10px;
+        }
+      }
+      &.from-them {
+        align-items: flex-start;
+        background-color: $grey-100;
+        color: $white;
+        &:before {
+          border-bottom-right-radius: 0.8rem 0.7rem;
+          border-left: 1rem solid $grey-100;
+          left: -0.35rem;
+          transform: translate(0, -0.1rem);
+        }
+        &:after {
+          background-color: $black;
+          border-bottom-right-radius: 0.5rem;
+          left: 20px;
+          transform: translate(-30px, -2px);
+          width: 10px;
+        }
+      }
+    }
+    p[class^="from-"] {
+      margin: 0.5rem 0;
+      width: fit-content;
+    }
+    p.from-me ~ p.from-me {
+      margin: 0.25rem 0 0;
+    }
+    p.from-me ~ p.from-me:not(:last-child) {
+      margin: 0.25rem 0 0;
+    }
+    p.from-me ~ p.from-me:last-child {
+      margin-bottom: 0.5rem;
+    }
+    p[class^="from-"].emoji {
+      background: none;
+      font-size: 2.5rem;
+    }
+    p[class^="from-"].emoji::before {
+      content: none;
+    }
+    form {
+      position: relative;
+      width: 100%;
+      textarea {
+        background: none;
+        border: 1px solid $grey-100;
+        border-radius: 17px;
+        color: $grey;
+        font-weight: normal;
+        float: right;
+        padding: 5px;
+        width: 90%;
+        &:focus {
+          outline: none;
+        }
+      }
+      button {
+        background: $grey-100;
+        border: none;
+        border-radius: 30px;
+        bottom: 13px;
+        height: 35px;
+        position: absolute;
+        right: 12px;
+        width: 35px;
+        i {
+          color: $white;
+          font-size: 28px;
+        }
+      }
+    }
+    &-actions {
+      border-top: 1px solid $grey-900;
+      display: flex;
+      margin-top: 10px;
+      justify-content: space-around;
+      &-link {
+        color: $white;
+        cursor: pointer;
+        font-size: 36px;
+        padding: 5px;
+        &:hover{
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .chat-container {
+    .conversation {
+      font-size: 1.05rem;
+      margin: 0 auto 1rem;
+      max-width: 600px;
+      padding: 0.25rem 0.875rem;
+      p {
+        margin: 0.5rem 0;
+      }
+    }
+  }
+}
