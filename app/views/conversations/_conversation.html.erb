@@ -1,0 +1,7 @@
+<%= turbo_frame_tag dom_id(conversation) do %>
+  <% conversation.messages.each do |message| %>
+    <%= render 'message', message: message, user: current_user %>
+  <% end %>
+<% end %>
+
+<%= render 'message_form', conversation: conversation %>

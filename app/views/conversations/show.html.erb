@@ -1,0 +1,28 @@
+<!-- TODO: Once we review more pages, we will move the layout claases to application.html.erb -->
+<div class='chat-container'>
+  <div class="image-container"><%= image_tag 'header.png' %></div>
+  <div class="conversation">
+    <div class="text-center mb-3 conversation-title">
+      <%= image_tag 'switch-icon.svg', width: 14 %>
+      XXXX
+    </div>
+
+    <%= turbo_stream_from dom_id(@conversation, "user_#{current_user.id}") %>
+    <%= render 'conversation', conversation: @conversation %>
+  </div>
+
+  <div class="conversation-actions">
+    <%= link_to 'javascript:void(0)', class:'conversation-actions-link', path: "" do %>
+      <i class="bi bi-house-door-fill"></i>
+    <% end %>
+    <%= link_to 'javascript:void(0)', class:'conversation-actions-link', path: "" do %>
+      <i class="bi bi-send"></i>
+    <% end %>
+    <%= link_to 'javascript:void(0)', class:'conversation-actions-link', path: "" do %>
+      <i class="bi bi-plus-square"></i>
+    <% end %>
+    <%= link_to 'javascript:void(0)', class:'conversation-actions-link', path: "" do %>
+      <i class="bi bi-person-circle"></i>
+    <% end %>
+  </div>
+</div>
