@@ -1,0 +1,6 @@
+<%= turbo_frame_tag dom_id(message) do %>
+  <div class="conversation">
+    <%= render 'layouts/conversation_user_info', user: message.sender unless message.sender_id == user.id %>
+    <p class="<%= message.message_display_class(user: user) %>"><%= message.content %></p>
+  </div>
+<% end %>

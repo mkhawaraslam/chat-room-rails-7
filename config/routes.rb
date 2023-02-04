@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :conversations, only: :index
+  resources :conversations, only: %i[index update show]
 end
