@@ -34,7 +34,7 @@ rails db:seed
 $ bin/dev
 ```
 
-Your application should be running on localhost:3000
+Visit on localhost:3000
 
 ### If you're facing any issue regarding javascript and turbo, run the following command and then start the server
 ```
